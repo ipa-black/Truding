@@ -20,9 +20,9 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
 
-      # هذا هو السطر المنقذ: يولد مجلدات الايفون والاندرويد المخفية تلقائياً
+      # التعديل هنا: إجبار فلاتر على استخدام اسم بحروف صغيرة لتجنب خطأ الحرف الكبير
       - name: Create Flutter Project Structure
-        run: flutter create .
+        run: flutter create --project-name diamond_trade .
 
       - name: Install Dependencies
         run: flutter pub get
