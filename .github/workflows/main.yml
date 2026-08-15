@@ -20,10 +20,12 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
 
+      # هذا هو السطر المنقذ: يولد مجلدات الايفون والاندرويد المخفية تلقائياً
+      - name: Create Flutter Project Structure
+        run: flutter create .
+
       - name: Install Dependencies
         run: flutter pub get
-
-      # تم إيقاف خطوة البحث عن الأيقونة لتخطي الخطأ بنجاح
 
       - name: Set App Name
         run: |
