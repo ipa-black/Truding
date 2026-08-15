@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- التدرجات اللونية لمحاكاة الإضاءة والظل الثلاثي الأبعاد -->
+    
+    <!-- إضاءة علوية يسرى (ساطعة جداً) -->
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8FDF0"/>
+      <stop offset="100%" stop-color="#B9F6CA"/>
+    </linearGradient>
+    
+    <!-- إضاءة علوية وسطى (انعكاس النور المباشر) -->
+    <linearGradient id="g2" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#69F0AE"/>
+    </linearGradient>
+    
+    <!-- ظل علوي أيمن (بداية العمق) -->
+    <linearGradient id="g3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#69F0AE"/>
+      <stop offset="100%" stop-color="#00C853"/>
+    </linearGradient>
+    
+    <!-- ظل سفلي أيسر (انعكاس داخلي) -->
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E676"/>
+      <stop offset="100%" stop-color="#008235"/>
+    </linearGradient>
+    
+    <!-- عمق سفلي أوسط (القلب المظلم للألماسة) -->
+    <linearGradient id="g5" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#004D1E"/>
+    </linearGradient>
+    
+    <!-- ظل سفلي أيمن (أغمق نقطة) -->
+    <linearGradient id="g6" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00A844"/>
+      <stop offset="100%" stop-color="#003314"/>
+    </linearGradient>
+  </defs>
+
+  <!-- رسم واجهات الألماسة الستة مع إطار دقيق لمنع الفراغات -->
+  <g stroke="#004D1E" stroke-width="2" stroke-linejoin="round">
+    <polygon fill="url(#g1)" points="140,70 40,210 180,210" />
+    <polygon fill="url(#g2)" points="140,70 180,210 332,210 372,70" />
+    <polygon fill="url(#g3)" points="372,70 332,210 472,210" />
+    <polygon fill="url(#g4)" points="40,210 256,470 180,210" />
+    <polygon fill="url(#g5)" points="180,210 256,470 332,210" />
+    <polygon fill="url(#g6)" points="332,210 256,470 472,210" />
+  </g>
+
+  <!-- خطوط الانعكاس الزجاجي (Glossy Highlights) للمسة احترافية -->
+  <polygon fill="#FFFFFF" opacity="0.5" points="140,70 180,210 155,210" />
+  <polygon fill="#FFFFFF" opacity="0.25" points="180,210 256,470 235,470" />
+</svg>
