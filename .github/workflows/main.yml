@@ -1,0 +1,47 @@
+name: Build Diamond Trade IPA
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_ios:
+    name: Build iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Generate App Icons
+        run: flutter pub run flutter_launcher_icons
+
+      - name: Set App Name
+        run: |
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Diamond Trade" ios/Runner/Info.plist
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName DiamondTrade" ios/Runner/Info.plist
+
+      - name: Build iOS (No Codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Convert to IPA
+        run: |
+          mkdir -p Payload
+          mv build/ios/iphoneos/Runner.app Payload/
+          zip -qq -r DiamondTrade.ipa Payload
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: DiamondTrade-App
+          path: DiamondTrade.ipa
